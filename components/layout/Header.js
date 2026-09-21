@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -12,6 +16,8 @@ const navItems = [
 ];
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-[rgba(17,33,61,0.12)] bg-background/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 lg:px-10">
@@ -30,14 +36,46 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button className="rounded-full border border-brand-blue/20 bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-blue">
+          <button className="hidden rounded-full border border-brand-blue/20 bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-blue sm:block">
             Light
           </button>
-          <button className="rounded-full bg-brand-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm transition hover:bg-brand-blue-deep">
+          <button className="hidden rounded-full bg-brand-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm transition hover:bg-brand-blue-deep sm:block">
             Join Alumni
+          </button>
+          <button
+            type="button"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-blue/20 bg-white text-brand-blue lg:hidden"
+          >
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
+
+      {isMenuOpen && (
+        <div className="border-t border-[rgba(17,33,61,0.1)] bg-background px-6 py-5 lg:hidden">
+          <nav className="mx-auto flex max-w-[1440px] flex-col gap-1" aria-label="Mobile navigation">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm font-semibold text-foreground/80 transition hover:bg-brand-green/10 hover:text-brand-green"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <button className="mt-3 rounded-xl border border-brand-blue/20 bg-white px-4 py-3 text-left text-sm font-semibold text-brand-blue">
+              Light / Dark
+            </button>
+            <button className="mt-3 rounded-xl bg-brand-blue px-4 py-3 text-left text-sm font-semibold text-white">
+              Join Alumni
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
