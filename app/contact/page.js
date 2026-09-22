@@ -11,7 +11,13 @@ export default function ContactPage() {
           <div className="space-y-4 text-sm text-foreground/75">
             <p><span className="font-semibold text-brand-blue">Email:</span> grace@green.edu.bd</p>
             <p><span className="font-semibold text-brand-blue">Location:</span> Dhaka, Bangladesh</p>
-            <p><span className="font-semibold text-brand-blue">Social:</span> LinkedIn / Facebook / Community channels</p>
+            <div>
+              <p className="font-semibold text-brand-blue">Social:</p>
+              <div className="mt-2 flex flex-wrap gap-3">
+                <a href="https://www.facebook.com/gaacse" target="_blank" rel="noreferrer" className="text-brand-blue underline-offset-4 hover:underline">Facebook</a>
+                <a href="https://www.linkedin.com/company/green-alumni-association-of-cse-grace/" target="_blank" rel="noreferrer" className="text-brand-blue underline-offset-4 hover:underline">LinkedIn</a>
+              </div>
+            </div>
           </div>
         </div>
 

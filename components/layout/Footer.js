@@ -39,6 +39,10 @@ export default function Footer() {
           <div className="mt-4 space-y-2 text-sm text-foreground/70">
             <p>grace@green.edu.bd</p>
             <p>Dhaka, Bangladesh</p>
+            <div className="mt-3 space-y-2">
+              <a href="https://www.facebook.com/gaacse" target="_blank" rel="noreferrer" className="block transition hover:text-brand-blue">Facebook</a>
+              <a href="https://www.linkedin.com/company/green-alumni-association-of-cse-grace/" target="_blank" rel="noreferrer" className="block transition hover:text-brand-blue">LinkedIn</a>
+            </div>
           </div>
         </div>
       </div>

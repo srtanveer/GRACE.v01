@@ -1,21 +1,6 @@
-const events = [
-  {
-    slug: 'grace-alumni-meetup-2027',
-    title: 'GRACE Alumni Meetup 2027',
-    date: '12 February 2027',
-    venue: 'Green University Auditorium',
-    type: 'Networking',
-    description: 'A community meetup designed to reconnect alumni, students, and professionals in a collaborative environment.',
-  },
-  {
-    slug: 'career-bootcamp-industry-readiness',
-    title: 'Career Bootcamp: Industry Readiness',
-    date: '08 March 2027',
-    venue: 'Innovation Hub',
-    type: 'Career',
-    description: 'Practical guidance on career preparation, interviews, and transition from campus to industry.',
-  },
-];
+import Link from 'next/link';
+import Image from 'next/image';
+import { sortedEvents } from './data';
 
 export default function EventsPage() {
   return (
@@ -25,18 +10,18 @@ export default function EventsPage() {
         <h1 className="mt-3 text-4xl font-black tracking-[-0.06em] text-brand-blue md:text-5xl">Community events</h1>
       </header>
 
-      <div className="space-y-5">
-        {events.map((event) => (
-          <article key={event.slug} className="rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white p-6">
-            <div className="mb-2 text-xs uppercase tracking-[0.18em] text-brand-green">{event.type}</div>
-            <h2 className="text-2xl font-black tracking-[-0.05em] text-brand-blue">{event.title}</h2>
-            <div className="mt-3 flex flex-wrap gap-4 text-sm text-foreground/70">
-              <span>{event.date}</span>
-              <span>•</span>
-              <span>{event.venue}</span>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {sortedEvents.map((event) => (
+          <Link key={event.slug} href={`/events/${event.slug}`} className="group overflow-hidden rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white shadow-[0_12px_32px_rgba(17,33,61,0.04)] transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(17,33,61,0.08)]">
+            <div className="relative h-64 overflow-hidden">
+              <Image src={event.coverImage} alt={event.title} fill className="object-cover transition duration-300 group-hover:scale-105" />
             </div>
-            <p className="mt-4 max-w-3xl text-foreground/75">{event.description}</p>
-          </article>
+            <div className="p-5">
+              <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">{event.type}</div>
+              <h2 className="text-2xl font-black tracking-[-0.05em] text-brand-blue">{event.title}</h2>
+              <div className="mt-3 text-sm text-foreground/70">{event.date}</div>
+            </div>
+          </Link>
         ))}
       </div>
     </main>

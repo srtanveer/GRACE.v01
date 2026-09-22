@@ -1,29 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CalendarDays, MapPin, Sparkles, Users, BriefcaseBusiness, GraduationCap } from 'lucide-react';
+import { sortedEvents } from './events/data';
 
 const alumniHighlights = [
-  {
-    name: 'Nusrat Jahan',
-    role: 'Senior Product Engineer',
-    org: 'Pathao',
-    studentId: '22190200123',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Mahmud Hasan',
-    role: 'Lead Software Developer',
-    org: 'Brain Station 23',
-    studentId: '20190203456',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Rabeya Sultana',
-    role: 'Data Scientist',
-    org: 'Airtel Digital',
-    studentId: '20180201987',
-    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80',
-  },
   {
     name: 'Mohammad Tareq Hosain',
     role: 'Senior Data Engineer',
@@ -40,29 +20,7 @@ const stats = [
   { label: 'Career sectors', value: '18' },
 ];
 
-const upcomingEvents = [
-  {
-    title: 'GRACE Alumni Meetup 2027',
-    date: '12 February 2027',
-    venue: 'Green University Auditorium',
-    type: 'Networking',
-    image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Career Bootcamp: Industry Readiness',
-    date: '08 March 2027',
-    venue: 'Innovation Hub',
-    type: 'Career',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80',
-  },
-  {
-    title: 'Research & Innovation Forum',
-    date: '27 April 2027',
-    venue: 'Main Campus',
-    type: 'Academic',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80',
-  },
-];
+const upcomingEvents = sortedEvents.slice(0, 3);
 
 const stories = [
   {
@@ -80,12 +38,6 @@ const stories = [
     category: 'Career',
     excerpt: 'Practical advice for transitioning from university life into the software industry with confidence.',
   },
-];
-
-const leadership = [
-  { name: 'Md. Showaib Rahman Tanveer', role: 'Assistant General Secretary', committee: '2026–2028' },
-  { name: 'Ayesha Rahman', role: 'Executive Member', committee: '2026–2028' },
-  { name: 'Rafid Hossain', role: 'Executive Member', committee: '2026–2028' },
 ];
 
 export default function HomePage() {
@@ -147,13 +99,72 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-[rgba(17,33,61,0.08)] bg-[#f1f4ef]">
-        <div className="section-shell grid gap-5 py-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="section-shell grid grid-cols-2 gap-5 py-8 md:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-white px-5 py-6">
+            <div key={stat.label} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-white px-5 py-6 text-center">
               <div className="text-3xl font-black tracking-[-0.06em] text-brand-blue">{stat.value}</div>
               <div className="mt-2 text-[10px] uppercase tracking-[0.2em] text-foreground/65">{stat.label}</div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="section-shell py-16">
+        <div className="mb-8 text-center">
+          <div className="eyebrow">Our community</div>
+          <h2 className="mt-3 text-4xl text-brand-blue md:text-5xl">Institutional partners</h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            {
+              name: 'Green University of Bangladesh',
+              src: '/images/GUBLogo.svg',
+              alt: 'Green University of Bangladesh logo',
+              text: 'University identity',
+            },
+            {
+              name: 'Department of CSE',
+              src: '/images/Dept of CSE Logo.webp',
+              alt: 'Department of CSE logo',
+              text: 'Academic excellence',
+            },
+            {
+              name: 'GUCC',
+              src: '/images/LOGO of GUCC.webp',
+              alt: 'GUCC logo',
+              text: 'Departmental club',
+            },
+          ].map((logo) => (
+            <div key={logo.name} className="premium-card flex h-full flex-col items-center justify-center gap-4 p-6 text-center">
+              <div className="flex h-28 w-full items-center justify-center rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f8f9f5] p-4">
+                <div className="relative h-16 w-full max-w-[180px]">
+                  <Image src={logo.src} alt={logo.alt} fill className="object-contain" />
+                </div>
+              </div>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-brand-green">{logo.text}</div>
+                <h3 className="mt-2 text-2xl text-brand-blue">{logo.name}</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell pb-16">
+        <div className="rounded-[28px] border border-[rgba(17,33,61,0.08)] bg-[#f5f6f2] p-6 md:p-8">
+          <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
+            <div className="relative h-44 w-64 shrink-0 overflow-hidden rounded-2xl border border-[rgba(17,33,61,0.08)] bg-white p-2 shadow-sm">
+              <Image src="/images/Previous Logo of GRACE as GAACSE.webp" alt="Previous GAACSE logo" fill className="object-contain" />
+            </div>
+            <div>
+              <div className="eyebrow">Our legacy</div>
+              <h3 className="mt-2 text-3xl text-brand-blue md:text-4xl">GRACE was previously known as GAACSE</h3>
+              <p className="mt-3 max-w-3xl text-base text-foreground/75">
+                The association began under the name GUB Alumni Association of CSE (GAACSE), and this legacy mark reflects the foundation on which the GRACE community was built.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -228,22 +239,18 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="space-y-5">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {upcomingEvents.map((event) => (
-            <div key={event.title} className="premium-card flex flex-col justify-between gap-5 p-5 md:flex-row md:items-center md:p-6">
-              <div className="relative h-28 w-full overflow-hidden rounded-[18px] md:w-52">
-                <Image src={event.image} alt={event.title} fill className="object-cover" />
+            <Link key={event.slug} href={`/events/${event.slug}`} className="group overflow-hidden rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white shadow-[0_12px_32px_rgba(17,33,61,0.04)] transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(17,33,61,0.08)]">
+              <div className="relative h-64 overflow-hidden">
+                <Image src={event.coverImage} alt={event.title} fill className="object-cover transition duration-300 group-hover:scale-105" />
               </div>
-              <div className="flex-1">
-                <div className="mb-2 text-[10px] uppercase tracking-[0.2em] text-brand-green">{event.type}</div>
-                <h3 className="text-3xl text-brand-blue">{event.title}</h3>
+              <div className="p-5">
+                <div className="mb-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">{event.type}</div>
+                <h3 className="text-2xl font-black tracking-[-0.05em] text-brand-blue">{event.title}</h3>
+                <div className="mt-3 text-sm text-foreground/70">{event.date}</div>
               </div>
-              <div className="flex flex-wrap gap-4 text-sm text-foreground/70 md:justify-end">
-                <span>{event.date}</span>
-                <span>•</span>
-                <span>{event.venue}</span>
-              </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -265,28 +272,6 @@ export default function HomePage() {
               </Link>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-[#f2efe8]">
-        <div className="section-shell py-20">
-          <div className="mb-10">
-            <div className="eyebrow">Leadership</div>
-            <h2 className="mt-3 text-4xl text-brand-blue md:text-5xl">Executive committee</h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {leadership.map((person) => (
-              <div key={person.name} className="premium-card p-6">
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-brand-green/10 text-lg font-black text-brand-green">
-                  {person.name.split(' ').map((part) => part[0]).slice(0,2).join('')}
-                </div>
-                <h3 className="text-2xl text-brand-blue">{person.name}</h3>
-                <div className="mt-2 text-sm font-medium text-brand-green">{person.role}</div>
-                <div className="mt-4 text-sm text-foreground/70">{person.committee}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -10,14 +10,14 @@ const advisors = [
 ];
 
 const executives = [
-  { name: 'Mohammad Tareq Hosain', position: 'President', studentId: '151002017', email: 'mtareqhosain@gmail.com', phone: '01886611404', image: '/images/alumni/151002017.jpg' },
+  { name: 'Mohammad Tareq Hosain', position: 'President', studentId: '151002017', email: 'mtareqhosain@gmail.com', phone: '01886611404', job: 'Senior Data Engineer, NEXT Ventures', image: '/images/alumni/151002017.jpg' },
   { name: 'Sajib Miah', position: 'Sr. Vice President', studentId: '181002053', email: 'srsajib76@gmail.com', phone: '01605393799' },
   { name: 'Md. Tamim Hossen', position: 'Vice President', studentId: '162002013', email: 'tamimhossengub@gmail.com', phone: '01754472907' },
   { name: 'Najmus Sakib Sizan', position: 'Vice President', studentId: '181002115', email: 'nsakibsizan115@gmail.com', phone: '01876895227' },
   { name: 'Saroar Jahan Sojib', position: 'General Secretary', studentId: '171002011', email: 'saroarcse171@gmail.com', phone: '01789489563' },
   { name: 'Md. Montasir Rahman', position: 'Treasurer', studentId: '202002003', email: 'montasirrahmanhridoy@gmail.com', phone: '01633605153' },
   { name: 'Mocarram Hosan', position: 'Joint Secretary', studentId: '163002010', email: 'mocarramhossain@gmail.com', phone: '01755442475' },
-  { name: 'Md. Showaib Rahman Tanveer', position: 'Asst. General Secretary', studentId: '221902084', email: 'srtanveer.cse@gmail.com', phone: '01569104401', image: '/images/alumni/221902084.webp' },
+  { name: 'Md. Showaib Rahman Tanveer', position: 'Asst. General Secretary', studentId: '221902084', email: 'srtanveer.cse@gmail.com', phone: '01569104401', job: 'Junior Executive, Biometrics.BD Limited', image: '/images/alumni/221902084.webp' },
   { name: 'Abdul Fattah', position: 'Deputy Treasurer', studentId: '221902066', email: 'abdulfattah1177@gmail.com', phone: '01858560779' },
   { name: 'Hridoy Debnath', position: 'Organizing Secretary', studentId: '213002239', email: 'hridoydebnath111@gmail.com', phone: '01742029266' },
   { name: 'Tarafder Razibur Rahman', position: 'Social Welfare and Skill Development Secretary', studentId: '161002054', email: 'rajiburrahmantrafder@gmail.com', phone: '01961134806' },
@@ -49,11 +49,8 @@ function MemberCard({ member, advisor = false }) {
             {advisor ? 'Advisor' : member.position}
           </div>
           <h3 className="text-xl font-black tracking-[-0.04em] text-brand-blue">{member.name}</h3>
-          <div className="mt-4 space-y-1 text-sm text-foreground/70">
-            <p><span className="font-semibold text-foreground">ID:</span> {member.studentId}</p>
-            <p className="break-all"><span className="font-semibold text-foreground">Email:</span> {member.email}</p>
-            <p><span className="font-semibold text-foreground">Phone:</span> {member.phone}</p>
-          </div>
+          <p className="mt-4 text-sm text-foreground/70"><span className="font-semibold text-foreground">ID:</span> {member.studentId}</p>
+          {member.job && <p className="mt-1 text-sm text-foreground/70">{member.job}</p>}
         </div>
       </div>
     </Link>
@@ -77,7 +74,7 @@ export default function ExecutiveCommitteePage() {
           </div>
           <span className="text-sm font-semibold text-foreground/55">{advisors.length} members</span>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {advisors.map((member) => <MemberCard key={member.studentId} member={member} advisor />)}
         </div>
       </section>
@@ -90,7 +87,7 @@ export default function ExecutiveCommitteePage() {
           </div>
           <span className="text-sm font-semibold text-foreground/55">{executives.length} members</span>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {executives.map((member) => <MemberCard key={member.studentId} member={member} />)}
         </div>
       </section>
