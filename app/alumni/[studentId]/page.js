@@ -250,47 +250,47 @@ export default async function AlumniProfilePage({ params }) {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-12 lg:px-10">
+    <main className="mx-auto max-w-6xl px-6 py-8 md:py-12 lg:px-10">
       <div className="overflow-hidden rounded-[28px] border border-[rgba(17,33,61,0.08)] bg-white shadow-[0_18px_50px_rgba(17,33,61,0.06)]">
-        <div className="grid gap-8 bg-[linear-gradient(135deg,#f6f8f4,#edf3f1)] p-8 md:grid-cols-[280px_1fr] md:p-10">
-          <div className="relative h-72 overflow-hidden rounded-[22px] bg-[linear-gradient(145deg,#e4f0e9,#e5eaf5)] md:h-full">
+        <div className="grid gap-5 bg-[linear-gradient(135deg,#f6f8f4,#edf3f1)] p-5 md:gap-8 md:grid-cols-[280px_1fr] md:p-10">
+          <div className="relative h-60 overflow-hidden rounded-[22px] bg-[linear-gradient(145deg,#e4f0e9,#e5eaf5)] md:h-full">
             <AlumniPhoto studentId={alumni.studentId} name={alumni.name} src={alumni.profileImage} sizes="(max-width: 768px) 100vw, 280px" />
           </div>
 
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-brand-green">Alumni profile</div>
-            <h1 className="mt-3 text-4xl font-black tracking-[-0.06em] text-brand-blue md:text-5xl">{alumni.name}</h1>
-            <div className="mt-2 text-xl font-semibold text-brand-green">{alumni.designation}</div>
-            <div className="mt-4 text-base text-foreground/75">{alumni.organization}</div>
+            <h1 className="mt-2 text-3xl font-black tracking-[-0.06em] text-brand-blue md:mt-3 md:text-5xl">{alumni.name}</h1>
+            <div className="mt-1 text-lg font-semibold text-brand-green md:mt-2 md:text-xl">{alumni.designation}</div>
+            <div className="mt-3 text-sm text-foreground/75 md:mt-4 md:text-base">{alumni.organization}</div>
 
-            <div className="mt-6 flex flex-wrap gap-3 text-sm text-foreground/70">
-              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-2">Student ID: {alumni.studentId}</span>
-              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-2">Batch: {alumni.batch}</span>
-              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-2">Graduation: {alumni.graduationYear}</span>
-              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-2">{alumni.location}</span>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs text-foreground/70 md:mt-6 md:gap-3 md:text-sm">
+              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-1.5 md:py-2">Student ID: {alumni.studentId}</span>
+              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-1.5 md:py-2">Batch: {alumni.batch}</span>
+              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-1.5 md:py-2">Graduation: {alumni.graduationYear}</span>
+              <span className="rounded-full border border-[rgba(17,33,61,0.12)] bg-white px-3 py-1.5 md:py-2">{alumni.location}</span>
             </div>
 
-            <div className="mt-8 flex gap-4 text-sm font-semibold uppercase tracking-[0.16em] text-brand-blue">
-              <Link href="/alumni" className="rounded-full border border-brand-blue/20 px-4 py-2">Back to alumni</Link>
-              <Link href="/contact" className="rounded-full bg-brand-blue px-4 py-2 text-white">Connect</Link>
+            <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-brand-blue md:mt-8 md:gap-4 md:text-sm md:tracking-[0.16em]">
+              <Link href="/alumni" className="rounded-full border border-brand-blue/20 px-4 py-1.5 md:px-4 md:py-2">Back to alumni</Link>
+              <Link href="/contact" className="rounded-full bg-brand-blue px-4 py-1.5 text-white md:py-2">Connect</Link>
             </div>
           </div>
         </div>
 
-        <div className="space-y-10 p-8 md:p-10">
+        <div className="space-y-7 p-5 md:space-y-10 md:p-10">
           <section>
-            <div className="mb-4 text-xs uppercase tracking-[0.2em] text-brand-green">About</div>
-            <p className="max-w-4xl text-lg text-foreground/75">{alumni.shortBio}</p>
-            <p className="mt-5 max-w-4xl text-base text-foreground/70">{alumni.biography}</p>
+            <div className="mb-3 text-[10px] uppercase tracking-[0.2em] text-brand-green md:mb-4 md:text-xs">About</div>
+            <p className="max-w-4xl text-base text-foreground/75 md:text-lg">{alumni.shortBio}</p>
+            <p className="mt-3 max-w-4xl text-sm text-foreground/70 md:mt-5 md:text-base">{alumni.biography}</p>
           </section>
 
           {alumni.education?.length > 0 && (
             <section>
-              <div className="mb-4 text-xs uppercase tracking-[0.2em] text-brand-green">Education</div>
-              <div className="space-y-4">
+              <div className="mb-3 text-[10px] uppercase tracking-[0.2em] text-brand-green md:mb-4 md:text-xs">Education</div>
+              <div className="space-y-3 md:space-y-4">
                 {alumni.education.map((item) => (
-                  <div key={`${item.institution}-${item.year}`} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f9f7f3] p-5">
-                    <div className="text-lg font-bold text-brand-blue">{item.degree}</div>
+                  <div key={`${item.institution}-${item.year}`} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f9f7f3] p-4 md:p-5">
+                    <div className="text-base font-bold text-brand-blue md:text-lg">{item.degree}</div>
                     <div className="mt-1 text-foreground/70">{item.institution}</div>
                     <div className="mt-2 text-sm text-foreground/60">{item.year}</div>
                   </div>
@@ -301,11 +301,11 @@ export default async function AlumniProfilePage({ params }) {
 
           {alumni.career?.length > 0 && (
             <section>
-              <div className="mb-4 text-xs uppercase tracking-[0.2em] text-brand-green">Career journey</div>
-              <div className="space-y-4">
+              <div className="mb-3 text-[10px] uppercase tracking-[0.2em] text-brand-green md:mb-4 md:text-xs">Career journey</div>
+              <div className="space-y-3 md:space-y-4">
                 {alumni.career.map((item) => (
-                  <div key={`${item.organization}-${item.designation}`} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f9f7f3] p-5">
-                    <div className="text-lg font-bold text-brand-blue">{item.designation}</div>
+                  <div key={`${item.organization}-${item.designation}`} className="rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f9f7f3] p-4 md:p-5">
+                    <div className="text-base font-bold text-brand-blue md:text-lg">{item.designation}</div>
                     <div className="mt-1 text-foreground/70">{item.organization}</div>
                     <div className="mt-2 text-sm text-foreground/60">{item.period || `${item.startYear} — ${item.endYear || 'Present'}`}</div>
                     {item.location && <div className="mt-1 text-sm text-foreground/60">{item.location}</div>}

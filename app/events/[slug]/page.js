@@ -64,9 +64,15 @@ export default async function EventDetailPage({ params }) {
               <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">Gallery</div>
               <div className="mt-5 grid gap-4 md:grid-cols-2">
                 {event.gallery.map((photo) => (
-                  <div key={photo} className="relative h-72 overflow-hidden rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f4f5f2]">
-                    <Image src={photo} alt={`${event.title} gallery`} fill className="object-cover" />
-                  </div>
+                  <a
+                    key={photo}
+                    href={photo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative flex h-72 items-center justify-center overflow-hidden rounded-[20px] border border-[rgba(17,33,61,0.08)] bg-[#f4f5f2] transition hover:border-brand-green hover:shadow-[0_12px_30px_rgba(17,33,61,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2"
+                  >
+                    <Image src={photo} alt={`${event.title} gallery`} fill className="object-contain transition duration-300 group-hover:scale-[1.02]" />
+                  </a>
                 ))}
               </div>
             </div>

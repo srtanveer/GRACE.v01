@@ -66,9 +66,42 @@ p {
   text-justify: inter-word;
 }
 
+/* Keep the page rhythm compact across short and long layouts. */
+.py-20 {
+  padding-block: 4rem;
+}
+
+.py-16 {
+  padding-block: 3rem;
+}
+
+.py-12 {
+  padding-block: 2.5rem;
+}
+
+.gap-12 {
+  gap: 2rem;
+}
+
+.gap-10 {
+  gap: 2rem;
+}
+
+.mb-10 {
+  margin-bottom: 1.75rem;
+}
+
+.mt-10 {
+  margin-top: 2rem;
+}
+
 @media (max-width: 767px) {
   html {
-    font-size: 15.5px;
+    font-size: 15px;
+  }
+
+  body {
+    line-height: 1.55;
   }
 }
 
