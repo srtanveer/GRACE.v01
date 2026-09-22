@@ -19,9 +19,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${nunito.variable} bg-background text-foreground antialiased`}>
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="flex min-h-screen flex-col bg-background text-foreground">
           <Header />
-          <main>{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>

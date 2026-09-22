@@ -197,9 +197,9 @@ export default function HomePage() {
               { icon: MapPin, title: 'Community', text: 'Build lasting relationships across batches, sectors, and geographies.' },
             ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-                <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 p-2">
+                {/* <div className="mb-4 inline-flex rounded-full border border-white/10 bg-white/5 p-2">
                   <Icon size={18} />
-                </div>
+                </div> */}
                 <h3 className="text-2xl text-white">{title}</h3>
                 <p className="mt-3 text-sm text-white/75">{text}</p>
               </div>

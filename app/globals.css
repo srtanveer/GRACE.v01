@@ -66,6 +66,12 @@ p {
   text-justify: inter-word;
 }
 
+@media (max-width: 767px) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
 ::selection {
   background: rgba(13, 139, 113, 0.2);
 }

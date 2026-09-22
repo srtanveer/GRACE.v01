@@ -11,7 +11,7 @@ const navItems = [
   { label: 'Executive Committee', href: '/executive-committee' },
   { label: 'Events', href: '/events' },
   { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
+  // { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -19,7 +19,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(17,33,61,0.12)] bg-background/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[rgba(17,33,61,0.12)] bg-background/75 backdrop-blur-xl">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center gap-4">
           <div className="relative h-14 w-28 overflow-hidden rounded-md">
@@ -36,18 +36,15 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <button className="hidden rounded-full border border-brand-blue/20 bg-white px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-blue sm:block">
-            Light
-          </button>
-          <button className="hidden rounded-full bg-brand-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm transition hover:bg-brand-blue-deep sm:block">
+          <Link href="/join-alumni" className="hidden rounded-full bg-brand-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm transition hover:bg-brand-blue-deep hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 sm:block">
             Join Alumni
-          </button>
+          </Link>
           <button
             type="button"
             aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-blue/20 bg-white text-brand-blue lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-blue/20 bg-white text-brand-blue transition hover:border-brand-green hover:text-brand-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 lg:hidden"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -67,12 +64,9 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <button className="mt-3 rounded-xl border border-brand-blue/20 bg-white px-4 py-3 text-left text-sm font-semibold text-brand-blue">
-              Light / Dark
-            </button>
-            <button className="mt-3 rounded-xl bg-brand-blue px-4 py-3 text-left text-sm font-semibold text-white">
+            <Link href="/join-alumni" onClick={() => setIsMenuOpen(false)} className="mt-3 rounded-xl bg-brand-blue px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-brand-blue-deep hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-[0.98]">
               Join Alumni
-            </button>
+            </Link>
           </nav>
         </div>
       )}

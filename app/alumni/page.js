@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import AlumniPhoto from '../../components/alumni/AlumniPhoto';
 
+const PAGE_SIZE = 15;
+
 const directoryAlumni = [
   {
     studentId: '151002017',
@@ -75,6 +77,7 @@ const alumni = [
 export default function AlumniDirectoryPage() {
   const [search, setSearch] = useState('');
   const [batch, setBatch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const options = useMemo(() => ({
     batches: [...new Set(alumni.map((person) => person.batch))],
@@ -104,6 +107,22 @@ export default function AlumniDirectoryPage() {
   const clearFilters = () => {
     setSearch('');
     setBatch('');
+    setCurrentPage(1);
+  };
+
+  const totalPages = Math.max(1, Math.ceil(filteredAlumni.length / PAGE_SIZE));
+  const visibleAlumni = filteredAlumni.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const firstVisibleResult = filteredAlumni.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1;
+  const lastVisibleResult = Math.min(currentPage * PAGE_SIZE, filteredAlumni.length);
+
+  const updateSearch = (value) => {
+    setSearch(value);
+    setCurrentPage(1);
+  };
+
+  const updateBatch = (value) => {
+    setBatch(value);
+    setCurrentPage(1);
   };
 
   return (
@@ -116,23 +135,23 @@ export default function AlumniDirectoryPage() {
       <div className="mb-8 grid gap-4 rounded-[24px] border border-[rgba(17,33,61,0.08)] bg-white p-5 md:grid-cols-[1.5fr_1fr_auto]">
         <input
           value={search}
-          onChange={(event) => setSearch(event.target.value)}
+          onChange={(event) => updateSearch(event.target.value)}
           className="rounded-full border border-[rgba(17,33,61,0.12)] bg-[#f7f8f5] px-4 py-3 text-sm text-foreground outline-none ring-0 placeholder:text-foreground/45"
           placeholder="Search name, skills, location, company..."
         />
-        <select value={batch} onChange={(event) => setBatch(event.target.value)} className="rounded-full border border-[rgba(17,33,61,0.12)] bg-[#f7f8f5] px-4 py-3 text-sm text-foreground outline-none">
+        <select value={batch} onChange={(event) => updateBatch(event.target.value)} className="rounded-full border border-[rgba(17,33,61,0.12)] bg-[#f7f8f5] px-4 py-3 text-sm text-foreground outline-none focus:border-brand-green focus:outline-none focus:ring-2 focus:ring-brand-green/20">
           <option value="">All batches</option>
           {options.batches.map((option) => <option key={option} value={option}>{option}</option>)}
         </select>
-        <button type="button" onClick={clearFilters} className="rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+        <button type="button" onClick={clearFilters} className="rounded-full bg-brand-blue px-5 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-brand-blue-deep hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-[0.98]">
           Clear filters
         </button>
       </div>
 
-      <div className="mb-6 text-sm font-medium text-foreground/65">Showing {filteredAlumni.length} of {alumni.length} alumni</div>
+      <div className="mb-6 text-sm font-medium text-foreground/65">Showing {firstVisibleResult}-{lastVisibleResult} of {filteredAlumni.length} alumni</div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        {filteredAlumni.map((person) => (
+      <div className="grid gap-5 px-5 lg:grid-cols-3 lg:px-0">
+        {visibleAlumni.map((person) => (
           <Link key={person.studentId} href={`/alumni/${person.studentId}`} className="group flex gap-5 rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(17,33,61,0.08)]">
             <div className="relative h-28 w-24 overflow-hidden rounded-[18px] bg-[#ecf0f1]">
               <AlumniPhoto studentId={person.studentId} name={person.name} src={person.image} sizes="96px" />
@@ -165,6 +184,22 @@ export default function AlumniDirectoryPage() {
         <div className="rounded-[24px] border border-dashed border-brand-blue/20 bg-white p-10 text-center text-foreground/65">
           No alumni match those search criteria.
         </div>
+      )}
+
+      {filteredAlumni.length > 0 && totalPages > 1 && (
+        <nav className="mt-8 flex flex-wrap items-center justify-center gap-2" aria-label="Alumni directory pagination">
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+            <button
+              key={page}
+              type="button"
+              onClick={() => setCurrentPage(page)}
+              aria-current={page === currentPage ? 'page' : undefined}
+              className={`inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 ${page === currentPage ? 'bg-brand-blue text-white shadow-sm' : 'border border-brand-blue/15 bg-white text-brand-blue hover:border-brand-green hover:text-brand-green'}`}
+            >
+              {page}
+            </button>
+          ))}
+        </nav>
       )}
     </main>
   );
