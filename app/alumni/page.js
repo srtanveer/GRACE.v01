@@ -152,28 +152,28 @@ export default function AlumniDirectoryPage() {
 
       <div className="grid gap-5 px-5 lg:grid-cols-3 lg:px-0">
         {visibleAlumni.map((person) => (
-          <Link key={person.studentId} href={`/alumni/${person.studentId}`} className="group flex gap-5 rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(17,33,61,0.08)]">
-            <div className="relative h-28 w-24 overflow-hidden rounded-[18px] bg-[#ecf0f1]">
+          <Link key={person.studentId} href={`/alumni/${person.studentId}`} className="group flex min-w-0 gap-3 overflow-hidden rounded-[26px] border border-[rgba(17,33,61,0.08)] bg-white p-3 transition hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(17,33,61,0.08)] md:gap-5 md:p-4">
+            <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-[18px] bg-[#ecf0f1] md:h-28 md:w-24">
               <AlumniPhoto studentId={person.studentId} name={person.name} src={person.image} sizes="96px" />
             </div>
 
-            <div className="flex-1">
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <h2 className="text-xl font-black tracking-[-0.05em] text-brand-blue">{person.name}</h2>
+            <div className="min-w-0 flex-1">
+              <div className="mb-2 flex min-w-0 flex-wrap items-start justify-between gap-2">
+                <h2 className="min-w-0 break-words text-base font-black tracking-[-0.04em] text-brand-blue md:text-xl">{person.name}</h2>
                 {person.featured && (
-                  <span className="rounded-full bg-brand-green/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+                  <span className="shrink-0 rounded-full bg-brand-green/10 px-2 py-1 text-[9px] font-semibold uppercase tracking-[0.15em] text-brand-green md:text-[10px] md:tracking-[0.2em]">
                     Featured
                   </span>
                 )}
               </div>
 
-              <div className="space-y-1 text-sm text-foreground/70">
-                <p><span className="font-semibold text-foreground">Student ID:</span> {person.studentId}</p>
-                <p><span className="font-semibold text-foreground">Batch:</span> {person.batch}</p>
-                <p><span className="font-semibold text-foreground">Graduation:</span> {person.graduationYear}</p>
-                <p><span className="font-semibold text-foreground">Role:</span> {person.designation}</p>
-                <p><span className="font-semibold text-foreground">Organization:</span> {person.organization}</p>
-                <p><span className="font-semibold text-foreground">Skills:</span> {person.skills.join(', ')}</p>
+              <div className="space-y-1 text-xs text-foreground/70 md:text-sm">
+                <p className="break-words"><span className="font-semibold text-foreground">Student ID:</span> {person.studentId}</p>
+                <p className="break-words"><span className="font-semibold text-foreground">Batch:</span> {person.batch}</p>
+                <p className="break-words"><span className="font-semibold text-foreground">Graduation:</span> {person.graduationYear}</p>
+                <p className="break-words"><span className="font-semibold text-foreground">Role:</span> {person.designation}</p>
+                <p className="break-words"><span className="font-semibold text-foreground">Organization:</span> {person.organization}</p>
+                <p className="break-words"><span className="font-semibold text-foreground">Skills:</span> {person.skills.join(', ')}</p>
               </div>
             </div>
           </Link>
