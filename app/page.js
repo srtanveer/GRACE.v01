@@ -43,56 +43,36 @@ const stories = [
 export default function HomePage() {
   return (
     <>
-      <section className="section-shell py-16 lg:py-24">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-green/20 bg-brand-green/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-green">
+      <section className="relative isolate flex min-h-[620px] items-center overflow-hidden bg-brand-blue py-24 lg:min-h-[680px]">
+        <Image
+          src="/images/events/E6_2.jpg"
+          alt="GRACE alumni gathered at a community event"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-[#071b35]/80" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#071b35]/60 via-[#071b35]/75 to-[#071b35]/90" />
+        <div className="section-shell relative z-10 flex w-full justify-center">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center text-white">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-gold backdrop-blur-sm">
               <Sparkles size={14} /> Alumni network
             </div>
-            <h1 className="max-w-xl text-5xl text-brand-blue sm:text-6xl lg:text-[5.4rem]">
-              Unite.<br />Ignite.<br />Accelerate.
+            <h1 className="text-5xl text-white sm:text-6xl lg:text-[5.4rem]">
+              Unite<br />Ignite<br />Accelerate
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-foreground/75">
+            <p className="mx-auto mt-6 max-w-2xl !text-center text-lg text-white/85">
               GRACE brings together Green University CSE alumni to celebrate achievement, strengthen community, and create opportunity through shared experience.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/alumni" className="inline-flex items-center gap-2 rounded-full bg-brand-blue px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-blue-deep">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link href="/alumni" className="inline-flex items-center gap-2 rounded-full bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-blue transition hover:bg-white">
                 Explore alumni <ArrowRight size={16} />
               </Link>
-              <Link href="/events" className="inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-white px-6 py-3 text-sm font-semibold text-brand-blue transition hover:border-brand-green/50 hover:text-brand-green">
+              <Link href="/events" className="inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white hover:text-brand-blue">
                 Upcoming events
               </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-8 rounded-[36px] bg-gradient-to-br from-brand-green/10 via-transparent to-brand-blue/10 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[30px] border border-[rgba(17,33,61,0.12)] bg-white p-5 shadow-[0_30px_70px_rgba(17,33,61,0.08)]">
-              <div className="rounded-[22px] border border-[rgba(17,33,61,0.08)] bg-[linear-gradient(135deg,#f4f9f8,#eef1f7)] p-4">
-                <div className="mb-4 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-blue/70">
-                  <span>Featured alumni</span>
-                  <span>2027</span>
-                </div>
-                <div className="relative h-[27rem] overflow-hidden rounded-[18px] bg-brand-blue">
-                  <Image
-                    src="/images/alumni/151002017.jpg"
-                    alt="Featured alumni portrait"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d236d]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/70">Senior Data Engineer</div>
-                    <h2 className="mt-2 text-3xl text-white">Mohammad Tareq Hosain</h2>
-                    <div className="mt-1 text-sm text-white/80">NEXT Ventures</div>
-                    <Link href="/alumni/151002017" className="mt-4 inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-white underline decoration-white/50 underline-offset-4">
-                      View full profile
-                    </Link>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
