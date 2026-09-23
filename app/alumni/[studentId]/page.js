@@ -15,7 +15,7 @@ const alumniMap = {
     location: 'Dhaka, Bangladesh',
     shortBio: 'Senior data engineer building reliable data systems and helping teams make better use of information.',
     biography: 'Mohammad Tareq Hosain has built his career around data engineering, scalable systems, and practical technology solutions. His professional journey reflects the continued growth of Green University CSE alumni across the technology industry.',
-    education: [{ institution: 'Green University of Bangladesh', degree: 'B.Sc. in Computer Science and Engineering', year: '2020' }],
+    education: [],
     career: [
       {
         organization: 'NEXT Ventures',
@@ -30,8 +30,6 @@ const alumniMap = {
         period: 'Aug 2023 - Jun 2026 (2 years 11 months)',
         location: 'Dhaka, Bangladesh',
         workMode: 'On-site · Full-time',
-        details: ['Delivered scalable web solutions using TypeScript and Next.js for data-driven and user-centric products.'],
-        skills: ['TypeScript', 'Next.js'],
       },
       {
         organization: 'TechnoNext Ltd',
@@ -39,8 +37,6 @@ const alumniMap = {
         period: 'Jun 2022 - Jul 2023 (1 year 2 months)',
         location: 'Dhaka, Bangladesh',
         workMode: 'On-site · Full-time',
-        details: ['Led the frontend team to deliver high-performance, scalable web applications for the aviation industry, focusing on user experience and operational efficiency.'],
-        skills: ['Tailwind CSS', 'Front-End Development'],
       },
       {
         organization: 'Barikoi - Full Stack Location Services Platform',
@@ -48,8 +44,6 @@ const alumniMap = {
         period: 'Feb 2021 - May 2022 (1 year 4 months)',
         location: 'Dhaka, Bangladesh',
         workMode: 'On-site · Full-time',
-        details: ['Crafted scalable, real-time web solutions, delivering high-performance dashboards and location-based services that enhanced operational efficiency and customer experience.'],
-        skills: ['Deck.gl', 'JavaScript'],
       },
       {
         organization: 'Barikoi - Full Stack Location Services Platform',
@@ -57,10 +51,6 @@ const alumniMap = {
         period: 'Nov 2020 - Jan 2021 (3 months)',
         location: 'Dhaka, Bangladesh',
         workMode: 'Hybrid · Internship',
-        details: [
-          'Customized Material-UI components to create reusable, consistent UI elements across multiple projects.',
-          'Implemented an authentication system in React.js, gaining foundational knowledge in user access and security.',
-        ],
       },
     ],
     leadershipExperience: [
@@ -132,6 +122,246 @@ const committeeProfiles = [
   return profiles;
 }, {});
 
+committeeProfiles['110302005'] = {
+  ...committeeProfiles['110302005'],
+  batch: 'CSE 110',
+  profession: 'Staff Engineer',
+  organization: 'CarryBee',
+  designation: 'Advisor',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Software engineer with a strong track record across product engineering, platform development, and digital services.',
+  biography: 'Md. Sajib Sikder has built a robust software engineering career in Bangladesh, spanning multiple product companies and senior engineering roles.',
+  education: [],
+  career: [
+    { organization: 'CarryBee', designation: 'Staff Engineer', period: 'Dec 2024 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'Shikho', designation: 'Senior Software Engineer', period: 'Nov 2023 - Dec 2024', location: 'Dhaka, Bangladesh' },
+    { organization: 'ShopUp', designation: 'Sr. Software Engineer', period: 'Dec 2022 - Nov 2023', location: 'Dhaka, Bangladesh' },
+    { organization: 'Grameen Digital Healthcare Solutions', designation: 'Sr. Software Engineer', period: 'Oct 2021 - Dec 2022', location: 'Dhaka, Bangladesh' },
+    { organization: 'Shohoj Limited', designation: 'Sr. Software Engineer', period: 'Feb 2018 - Sep 2021', location: 'Dhaka, Bangladesh' },
+    { organization: 'Nano Information Technology', designation: 'Sr. Software Engineer', period: 'Oct 2016 - Feb 2018', location: 'Dhaka, Bangladesh' },
+    { organization: 'Userhub', designation: 'Software Engineer', period: 'Mar 2016 - Oct 2016', location: 'Dhaka, Bangladesh' },
+    { organization: 'UBS BD', designation: 'Web Application Developer', period: 'Jan 2014 - Mar 2016', location: 'Dhaka, Bangladesh' },
+    { organization: 'SEleven IT', designation: 'Web Application Developer', period: 'Aug 2012 - Jan 2014', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Advisor', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Advisor of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['120102038'] = {
+  ...committeeProfiles['120102038'],
+  batch: 'CSE 120',
+  profession: 'Software Engineer',
+  organization: 'Adventure Dhaka Limited',
+  designation: 'Advisor',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Technology leader and software engineer with experience across product engineering and business-critical digital systems.',
+  biography: 'Akbar Hossain has progressed through several engineering roles in Bangladesh, building a career focused on software delivery, systems thinking, and digital product growth.',
+  education: [],
+  career: [
+    { organization: 'Adventure Dhaka Limited', designation: 'Assistant Manager', period: 'Aug 2026 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'Adventure Dhaka Limited', designation: 'Senior Software Engineer', period: 'May 2023 - Jul 2026', location: 'Dhaka, Bangladesh' },
+    { organization: 'Grameen Digital Health', designation: 'Software Engineer', period: 'Aug 2021 - Jan 2023', location: 'Dhaka, Bangladesh' },
+    { organization: 'Shohoj Limited', designation: 'Software Engineer', period: 'Aug 2018 - Jul 2021', location: 'Dhaka, Bangladesh' },
+    { organization: 'Nano Information Technology', designation: 'Software Engineer', period: 'Jul 2017 - Jul 2018', location: 'Dhaka, Bangladesh' },
+    { organization: 'Userhub', designation: 'Web Developer', period: 'Nov 2016 - Mar 2017', location: 'Dhaka, Bangladesh' },
+    { organization: 'SEleven IT Limited', designation: 'Web Developer', period: 'Feb 2015 - Sep 2016', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Advisor', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Advisor of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['142002035'] = {
+  ...committeeProfiles['142002035'],
+  batch: 'CSE 142',
+  profession: 'Software Quality Assurance Engineer',
+  organization: 'MetLife Bangladesh',
+  designation: 'Advisor',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Quality assurance engineer focused on software reliability, digital product quality, and test-driven release confidence.',
+  biography: 'Jannatul Ferdous Katha has built her professional career in QA engineering across banking, digital operations, e-commerce, and product quality initiatives in Bangladesh.',
+  education: [
+    { institution: 'Bangladesh University of Professionals (BUP)', degree: 'Master of Engineering (MEng) in Cyber Security', year: 'January 2025' },
+  ],
+  career: [
+    { organization: 'MetLife Bangladesh', designation: 'Software Quality Assurance Engineer (working as an ADN DigiNet resource)', period: 'Jan 2025 - Present', location: 'Bangladesh' },
+    { organization: 'ADN DigiNet Ltd.', designation: 'Software Quality Assurance Engineer', period: 'Dec 2024 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'Green University of Bangladesh', designation: 'Edge Project Trainer', period: 'Not specified in profile', location: 'Dhaka, Bangladesh' },
+    { organization: 'CodeFoTech', designation: 'Software Quality Assurance Engineer', period: 'Sep 2024 - Jan 2025', location: 'Dhaka, Bangladesh' },
+    { organization: 'SEBPO Bangladesh', designation: 'Executive - QA (Digital Ad Operations)', period: 'Jan 2023 - Nov 2024', location: 'Dhaka, Bangladesh' },
+    { organization: 'ajkerdeal.com', designation: 'Software Engineer', period: 'Jan 2020 - Nov 2022', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Advisor', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Advisor of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['151002019'] = {
+  ...committeeProfiles['151002019'],
+  batch: 'CSE 151',
+  profession: 'Lecturer',
+  organization: 'Green University of Bangladesh',
+  designation: 'Advisor',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Academic and research professional working at the intersection of learning, machine learning, and visual computing.',
+  biography: 'Md. Atikuzzaman contributes to academia and research with experience in teaching, machine learning research, and data-driven visual computing.',
+  education: [
+    { institution: 'Kyung Hee University', degree: 'Master of Artificial Intelligence', year: 'Sep 2022 - Aug 2024' },
+  ],
+  career: [
+    { organization: 'Green University of Bangladesh', designation: 'Lecturer', period: 'Sep 2019 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'Machine Learning & Visual Computing Laboratory, Kyung Hee University', designation: 'Research Assistant (RA)', period: 'Sep 2022 - Aug 2024', location: 'Republic of Korea' },
+    { organization: 'Adiva Graphics', designation: 'Data Artist (Associate)', period: 'May 2019 - Jul 2019', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Advisor', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Advisor of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['162002013'] = {
+  ...committeeProfiles['162002013'],
+  batch: 'CSE 162',
+  profession: 'Assistant IT Manager',
+  organization: 'Mediscan Teleradiology Solutions',
+  designation: 'Assistant IT Manager',
+  location: 'Mohakhali, Dhaka, Bangladesh',
+  shortBio: 'IT manager overseeing enterprise infrastructure and technical operations at Mediscan Teleradiology Solutions.',
+  biography: 'Md. Tamim Hossen works in IT infrastructure and technical operations, with experience managing enterprise systems and process documentation.',
+  education: [],
+  career: [
+    { organization: 'Mediscan Teleradiology Solutions', designation: 'Assistant IT Manager', period: 'Sep 2020 - Present', location: 'Mohakhali, Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Vice President', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Vice President of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['181002053'] = {
+  ...committeeProfiles['181002053'],
+  batch: 'CSE 181',
+  profession: 'Software QA Engineer',
+  organization: 'Riseup Labs',
+  designation: 'Software QA Engineer',
+  location: 'Uttara, Dhaka, Bangladesh',
+  shortBio: 'Software QA engineer focused on quality assurance, automated testing, and cross-functional delivery.',
+  biography: 'Sajib Miah works in software quality assurance at Riseup Labs, contributing to testing initiatives and collaborative product delivery.',
+  education: [],
+  career: [
+    { organization: 'Riseup Labs', designation: 'Software QA Engineer', period: 'Jul 2023 - Present', location: 'Uttara, Dhaka, Bangladesh', workMode: 'Offshore QA Engineer (Safe-Guard Team)' },
+    { organization: 'Riseup Labs', designation: 'Jr Software QA Engineer', period: 'Feb 2022 - Jun 2023', location: 'Uttara, Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [{ organization: 'Green University Alumni Association of CSE (GRACE)', designation: 'Sr. Vice President', startYear: 2026, endYear: 2028 }],
+  graceInvolvement: 'Sr. Vice President of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['213002239'] = {
+  ...committeeProfiles['213002239'],
+  batch: 'CSE 213',
+  profession: 'Software Quality Assurance Engineer',
+  organization: 'PlayOn24',
+  designation: 'Software Quality Assurance Engineer',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Software quality assurance engineer working across testing, product quality, and delivery operations.',
+  biography: 'Hridoy Debnath has experience in software quality assurance and student community leadership at Green University of Bangladesh.',
+  education: [],
+  career: [
+    { organization: 'PlayOn24', designation: 'Software Quality Assurance Engineer', period: 'Sep 2025 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'QA Harbor Limited', designation: 'Software Quality Assurance Engineer', period: 'Jul 2025 - Sep 2025', location: 'Dhaka, Bangladesh' },
+    { organization: 'Green University of Bangladesh', designation: 'Student Mentor', period: 'Sep 2024 - Aug 2025', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [
+    { organization: 'Green University Computer Club (GUCC)', designation: 'Joint Organizing Secretary', period: 'Aug 2023 - Mar 2025' },
+    { organization: 'Green University Student Mentorship Program (GUSMP)', designation: 'Student Mentor', period: 'Sep 2024 - Aug 2025' },
+    { organization: 'Center of Excellence for Teaching and Learning (CETL), Green University', designation: 'Event Manager / Intern', period: 'Jun 2024 - Jun 2025' },
+    { organization: 'W.B. Union Model Institution Computer & Robotics Club', designation: 'Former General Secretary' },
+  ],
+  graceInvolvement: 'Organizing Secretary of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['202002003'] = {
+  ...committeeProfiles['202002003'],
+  batch: 'CSE 202',
+  profession: 'Senior Research Assistant',
+  organization: 'MOMODa FOUNDATION',
+  designation: 'Senior Research Assistant',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Research professional working across research assistance, communication, and machine learning initiatives.',
+  biography: 'Md. Montasir Rahman has experience in research, communication, machine learning, and academic program coordination.',
+  education: [],
+  career: [
+    { organization: 'MOMODa FOUNDATION', designation: 'Senior Research Assistant', period: 'Dec 2025 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'MOMODa FOUNDATION', designation: 'Officer (Communication)', period: 'Sep 2024 - Jun 2025', location: 'Dhaka, Bangladesh' },
+    { organization: 'Robo Tech Valley', designation: 'Machine Learning Intern', period: 'May 2024 - Jul 2024', location: 'Mirpur, Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [
+    { organization: 'Green University Computer Club (GUCC)', designation: 'President' },
+    { organization: 'Green University Research and Publication Community', designation: 'Advisor', period: 'Jan 2026 - Sep 2026' },
+    { organization: 'Center of Excellence for Teaching and Learning (CETL), Green University', designation: 'Intern Coordinator', period: 'Sep 2023 - Jun 2024' },
+    { organization: 'Center of Excellence for Teaching and Learning (CETL), Green University', designation: 'Research Assistant Intern', period: 'Oct 2022 - Jun 2024' },
+  ],
+  graceInvolvement: 'Treasurer of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['171002011'] = {
+  ...committeeProfiles['171002011'],
+  batch: 'CSE 171',
+  profession: 'Senior Software Engineer',
+  organization: 'US-Bangla Airlines Ltd.',
+  designation: 'Senior Software Engineer',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Senior software engineer focused on backend architecture, product engineering, and mentorship.',
+  biography: 'Saroar Jahan Sojib has progressed through software engineering roles across airline, product, and location-services technology companies.',
+  education: [],
+  career: [
+    { organization: 'US-Bangla Airlines Ltd.', designation: 'Senior Software Engineer', period: 'Sep 2026 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'TechnoNext', designation: 'Senior Software Engineer', period: 'Feb 2026 - Sep 2026', location: 'Dhaka, Bangladesh' },
+    { organization: 'TechnoNext', designation: 'Software Engineer', location: 'Dhaka, Bangladesh' },
+    { organization: 'TechnoNext', designation: 'Junior Software Engineer', period: 'Apr 2022 - Nov 2022', location: 'Dhaka, Bangladesh' },
+    { organization: 'Barikoi - Full Stack Location Services Platform', designation: 'Junior Software Engineer', period: 'Feb 2022 - Apr 2022', location: 'Dhaka, Bangladesh' },
+    { organization: 'Barikoi', designation: 'Software Engineer Intern', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [
+    { organization: 'TechnoNext', designation: 'Backend Architecture Lead & Mentor' },
+    { organization: 'TechnoNext', designation: 'Software Development Supervisor' },
+  ],
+  graceInvolvement: 'General Secretary of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
+committeeProfiles['181002115'] = {
+  ...committeeProfiles['181002115'],
+  batch: 'CSE 181',
+  profession: 'Senior Software Support Engineer',
+  organization: 'BJIT',
+  designation: 'Senior Software Support Engineer',
+  location: 'Dhaka, Bangladesh',
+  shortBio: 'Senior software support engineer with experience in technical support, coordination, and engineering operations.',
+  biography: 'Najmus Sakib Sizan has built experience across software support, technical coordination, and technology-focused leadership roles.',
+  education: [
+    { institution: 'Jagannath University, Dhaka', degree: 'Master of Science (MS) in Computer Science and Engineering', year: 'Aug 2022 - Jul 2024' },
+    { institution: 'Jagannath University, Dhaka', degree: 'Master of Philosophy (MPhil) in Computer Science (In progress)', year: 'Feb 2026 - Dec 2028' },
+  ],
+  career: [
+    { organization: 'BJIT', designation: 'Senior Software Support Engineer', period: 'Jul 2026 - Present', location: 'Dhaka, Bangladesh' },
+    { organization: 'BJIT', designation: 'Software Support Engineer', period: 'Jul 2024 - Jun 2026', location: 'Dhaka, Bangladesh' },
+    { organization: 'BJIT', designation: 'Support Engineer', period: 'Mar 2023 - Jul 2024', location: 'Dhaka, Bangladesh' },
+    { organization: 'Athena Infonomics', designation: 'Bangladesh Country Focal', period: 'Jan 2023 - Mar 2023', location: 'Dhaka, Bangladesh' },
+    { organization: 'BuffaloGrid', designation: 'Tech Coordinator', period: 'Jun 2022 - Mar 2023', location: 'Dhaka, Bangladesh' },
+  ],
+  leadershipExperience: [
+    { organization: 'Green University Computer Club (GUCC)', designation: 'President' },
+    { organization: 'Desh Universal (Pvt.) Ltd.', designation: 'Team Leader' },
+    { organization: 'BuffaloGrid Ltd.', designation: 'Tech Coordinator' },
+    { organization: 'Athena Infonomics', designation: 'Bangladesh Country Focal' },
+  ],
+  graceInvolvement: 'Vice President of the GRACE Executive Committee for 2026-2028.',
+  featured: true,
+};
+
 committeeProfiles['221902084'] = {
   ...committeeProfiles['221902084'],
   profileImage: '/images/alumni/221902084.webp',
@@ -147,32 +377,21 @@ committeeProfiles['221902084'] = {
       designation: 'Junior Executive (Pre-Sales)',
       period: 'Apr 2026 - Present (6+ months)',
       location: 'Banani, Dhaka',
-      details: [
-        'Coordinated project execution with Oracle, Cisco and HPE',
-        'Translated complex software and hardware capabilities into clear business values for clients',
-        'Prepared and maintained project documentation, presentations and operational records',
-        'Collaborated with cross-functional teams to ensure timely project delivery and stakeholder alignment',
-      ],
+      workMode: 'Hybrid · Full-time',
     },
     {
       organization: 'Digi5 LTD',
       designation: 'Frontend Developer - Intern (Academic Industrial Training)',
       period: 'Oct 2025 - Jan 2026 (4 months)',
       location: 'Aftabnagar, Dhaka',
-      details: [
-        'Coordinated project tasks, documentation and communication across development teams',
-        'Tracked project progress and ensured timely delivery of client requirements',
-      ],
+      workMode: 'On-site · Internship',
     },
     {
       organization: 'Rang Bangladesh LTD',
       designation: 'Web Service Management Officer (Contractual)',
       period: 'Feb 2023 - Jul 2023 (6 months)',
       location: 'Chashara, Narayanganj',
-      details: [
-        'Managed website content using a Content Management System (CMS) / WordPress',
-        'Maintained content accuracy while coordinating updates across internal teams',
-      ],
+      workMode: 'On-site · Contract',
     },
   ],
   leadershipExperience: [

@@ -2,24 +2,24 @@ import Link from 'next/link';
 import AlumniPhoto from '../../components/alumni/AlumniPhoto';
 
 const advisors = [
-  { name: 'Md. Sajib Sikder', studentId: '110302005', email: 'mhsajib.dev@gmail.com', phone: '01746290097' },
-  { name: 'Akbar Hossain', studentId: '120102038', email: 'akbarhossain15@gmail.com', phone: '01925197090' },
+  { name: 'Md. Sajib Sikder', studentId: '110302005', email: 'mhsajib.dev@gmail.com', phone: '01746290097', job: 'Staff Engineer, CarryBee' },
+  { name: 'Akbar Hossain', studentId: '120102038', email: 'akbarhossain15@gmail.com', phone: '01925197090', job: 'Assistant Manager, Adventure Dhaka Limited' },
   { name: 'Md. Mahamudul Hasan Khan', studentId: '130202048', email: 'jessankhan77@gmail.com', phone: '01686447177' },
-  { name: 'Jannatul Ferdous Katha', studentId: '142002035', email: 'ferdouskatha@gmail.com', phone: '01792855694' },
-  { name: 'Md. Atikuzzaman', studentId: '151002019', email: 'atik@cse.green.edu.bd', phone: '01912961096' },
+  { name: 'Jannatul Ferdous Katha', studentId: '142002035', email: 'ferdouskatha@gmail.com', phone: '01792855694', job: 'Software Quality Assurance Engineer, MetLife Bangladesh' },
+  { name: 'Md. Atikuzzaman', studentId: '151002019', email: 'atik@cse.green.edu.bd', phone: '01912961096', job: 'Lecturer, Green University of Bangladesh' },
 ];
 
 const executives = [
   { name: 'Mohammad Tareq Hosain', position: 'President', studentId: '151002017', email: 'mtareqhosain@gmail.com', phone: '01886611404', job: 'Senior Data Engineer, NEXT Ventures', image: '/images/alumni/151002017.jpg' },
-  { name: 'Sajib Miah', position: 'Sr. Vice President', studentId: '181002053', email: 'srsajib76@gmail.com', phone: '01605393799' },
-  { name: 'Md. Tamim Hossen', position: 'Vice President', studentId: '162002013', email: 'tamimhossengub@gmail.com', phone: '01754472907' },
-  { name: 'Najmus Sakib Sizan', position: 'Vice President', studentId: '181002115', email: 'nsakibsizan115@gmail.com', phone: '01876895227' },
-  { name: 'Saroar Jahan Sojib', position: 'General Secretary', studentId: '171002011', email: 'saroarcse171@gmail.com', phone: '01789489563' },
-  { name: 'Md. Montasir Rahman', position: 'Treasurer', studentId: '202002003', email: 'montasirrahmanhridoy@gmail.com', phone: '01633605153' },
+  { name: 'Sajib Miah', position: 'Sr. Vice President', studentId: '181002053', email: 'srsajib76@gmail.com', phone: '01605393799', job: 'Software QA Engineer, Riseup Labs' },
+  { name: 'Md. Tamim Hossen', position: 'Vice President', studentId: '162002013', email: 'tamimhossengub@gmail.com', phone: '01754472907', job: 'Assistant IT Manager, Mediscan Teleradiology Solutions' },
+  { name: 'Najmus Sakib Sizan', position: 'Vice President', studentId: '181002115', email: 'nsakibsizan115@gmail.com', phone: '01876895227', job: 'Senior Software Support Engineer, BJIT' },
+  { name: 'Saroar Jahan Sojib', position: 'General Secretary', studentId: '171002011', email: 'saroarcse171@gmail.com', phone: '01789489563', job: 'Senior Software Engineer, US-Bangla Airlines Ltd.' },
+  { name: 'Md. Montasir Rahman', position: 'Treasurer', studentId: '202002003', email: 'montasirrahmanhridoy@gmail.com', phone: '01633605153', job: 'Senior Research Assistant, MOMODa FOUNDATION' },
   { name: 'Mocarram Hosan', position: 'Joint Secretary', studentId: '163002010', email: 'mocarramhossain@gmail.com', phone: '01755442475' },
   { name: 'Md. Showaib Rahman Tanveer', position: 'Asst. General Secretary', studentId: '221902084', email: 'srtanveer.cse@gmail.com', phone: '01569104401', job: 'Junior Executive, Biometrics.BD Limited', image: '/images/alumni/221902084.webp' },
   { name: 'Abdul Fattah', position: 'Deputy Treasurer', studentId: '221902066', email: 'abdulfattah1177@gmail.com', phone: '01858560779' },
-  { name: 'Hridoy Debnath', position: 'Organizing Secretary', studentId: '213002239', email: 'hridoydebnath111@gmail.com', phone: '01742029266' },
+  { name: 'Hridoy Debnath', position: 'Organizing Secretary', studentId: '213002239', email: 'hridoydebnath111@gmail.com', phone: '01742029266', job: 'Software Quality Assurance Engineer, PlayOn24' },
   { name: 'Tarafder Razibur Rahman', position: 'Social Welfare and Skill Development Secretary', studentId: '161002054', email: 'rajiburrahmantrafder@gmail.com', phone: '01961134806' },
   { name: 'Saiful Islam Rimon', position: 'Office Secretary', studentId: '213002039', email: 'saifulofficial025@gmail.com', phone: '01756018512' },
   { name: 'Mohammad Sajid Hossain', position: 'Press & Media Secretary', studentId: '221902116', email: 'aayansajid88@gmail.com', phone: '01902386629' },
@@ -49,8 +49,8 @@ function MemberCard({ member, advisor = false }) {
             {advisor ? 'Advisor' : member.position}
           </div>
           <h3 className="text-xl font-black tracking-[-0.04em] text-brand-blue">{member.name}</h3>
-          <p className="mt-4 text-sm text-foreground/70"><span className="font-semibold text-foreground">ID:</span> {member.studentId}</p>
-          {member.job && <p className="mt-1 text-sm text-foreground/70">{member.job}</p>}
+          {member.job && <p className="mt-3 text-sm font-semibold text-brand-green">{member.job}</p>}
+          <p className="mt-3 text-sm text-foreground/70"><span className="font-semibold text-foreground">ID:</span> {member.studentId}</p>
         </div>
       </div>
     </Link>
