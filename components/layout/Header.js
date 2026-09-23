@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const navItems = [
@@ -11,65 +12,94 @@ const navItems = [
   { label: 'Executive Committee', href: '/executive-committee' },
   { label: 'Events', href: '/events' },
   { label: 'Blog', href: '/blog' },
-  // { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(17,33,61,0.12)] bg-background/75 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 lg:px-10">
-        <Link href="/" className="flex items-center gap-4">
-          <div className="relative h-14 w-28 overflow-hidden rounded-md">
-            <Image src="/images/grace-logo.png" alt="GRACE logo" fill className="object-contain" priority />
-          </div>
-        </Link>
-
-        <nav className="hidden items-center gap-7 text-sm font-medium text-foreground/80 lg:flex">
-          {navItems.map((item) => (
-            <Link key={item.label} href={item.href} className="transition hover:text-brand-green">
-              {item.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
-          <Link href="/join-alumni" className="hidden rounded-full bg-brand-blue px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white shadow-sm transition hover:bg-brand-blue-deep hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 sm:block">
-            Join Alumni
+    <header className="sticky top-0 z-50 px-4 pb-4 pt-5 md:px-6">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="flex items-center justify-between rounded-[30px] border border-white/40 bg-white/20 px-3 py-2.5 shadow-[0_12px_28px_rgba(17,33,61,0.05)] backdrop-blur-xl">
+          <Link href="/" className="flex shrink-0 items-center gap-3 pl-1" aria-label="GRACE home">
+            <div className="relative h-11 w-20 overflow-hidden rounded-xl">
+              <Image src="/images/grace-logo.png" alt="GRACE logo" fill className="object-contain" priority />
+            </div>
           </Link>
-          <button
-            type="button"
-            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((open) => !open)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-blue/20 bg-white text-brand-blue transition hover:border-brand-green hover:text-brand-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 lg:hidden"
-          >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </div>
 
-      {isMenuOpen && (
-        <div className="border-t border-[rgba(17,33,61,0.1)] bg-background px-6 py-5 lg:hidden">
-          <nav className="mx-auto flex max-w-[1440px] flex-col gap-1" aria-label="Mobile navigation">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-foreground/80 transition hover:bg-brand-green/10 hover:text-brand-green"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/join-alumni" onClick={() => setIsMenuOpen(false)} className="mt-3 rounded-xl bg-brand-blue px-4 py-3 text-left text-sm font-semibold text-white transition hover:bg-brand-blue-deep hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-[0.98]">
+          <nav className="hidden items-center justify-center gap-1 rounded-full px-2 py-1.5 text-[15px] font-semibold text-[#0f1f2d] lg:flex">
+            {navItems.map((item) => {
+              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`rounded-full px-4 py-2.5 transition-all duration-200 ${
+                    isActive
+                      ? 'bg-[#f9fbfa]/80 text-[#0d1b2a] shadow-[0_8px_18px_rgba(17,33,61,0.08)]'
+                      : 'text-[#16293d] hover:bg-white/25 hover:text-[#0d1b2a]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link
+              href="/join-alumni"
+              className="hidden rounded-full bg-brand-blue px-5 py-2.5 text-sm font-extrabold tracking-[-0.02em] text-white shadow-[0_10px_18px_rgba(18,45,143,0.25)] transition duration-200 hover:-translate-y-0.5 hover:bg-brand-blue-deep hover:shadow-[0_14px_24px_rgba(18,45,143,0.3)] active:translate-y-0 sm:inline-flex"
+            >
               Join Alumni
             </Link>
-          </nav>
+
+            <button
+              type="button"
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-white/15 text-[#11213d] shadow-sm transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 active:scale-95 lg:hidden"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
-      )}
+
+        {isMenuOpen && (
+          <div className="mt-3 rounded-[24px] border border-white/40 bg-white/15 p-3 shadow-[0_12px_28px_rgba(17,33,61,0.05)] backdrop-blur-xl lg:hidden">
+            <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+              {navItems.map((item) => {
+                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                      isActive ? 'bg-[#f9fbfa]/80 text-[#0d1b2a]' : 'text-[#16293d] hover:bg-white/25 hover:text-[#0d1b2a]'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+
+              <Link
+                href="/join-alumni"
+                onClick={() => setIsMenuOpen(false)}
+                className="mt-2 rounded-xl bg-brand-blue px-4 py-3 text-left text-sm font-extrabold text-white shadow-[0_10px_18px_rgba(18,45,143,0.25)]"
+              >
+                Join Alumni
+              </Link>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 }
